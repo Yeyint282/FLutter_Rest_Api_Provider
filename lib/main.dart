@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_lesson/provider/get_all_post/get_all_provider.dart';
+import 'package:flutter_provider_lesson/provider/get_complete_post/get_complete_post_notifier.dart';
 import 'package:flutter_provider_lesson/ui/screen/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => GetAllPostNotifier(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GetAllPostNotifier()),
+        ChangeNotifierProvider(create: (_) => GetCompletePostNotifer()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),

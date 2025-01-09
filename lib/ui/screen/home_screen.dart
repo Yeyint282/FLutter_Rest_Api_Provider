@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_provider_lesson/data/model/get_all_post_response.dart';
 import 'package:flutter_provider_lesson/provider/get_all_post/get_all_post_state.dart';
 import 'package:flutter_provider_lesson/provider/get_all_post/get_all_provider.dart';
+import 'package:flutter_provider_lesson/ui/screen/blog_post_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,9 +45,20 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 GetAllPostResponse getAllPostResponse =
                     getAllPostResponseList[index];
-                return Card(
-                  child: ListTile(
-                    title: Text('${getAllPostResponse.title}'),
+                return InkWell(
+                  onTap: () {
+                    if (getAllPostResponse.id != null) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => Bl0gPostDetailScreen(
+                                  id: getAllPostResponse.id!)));
+                    }
+                  },
+                  child: Card(
+                    child: ListTile(
+                      title: Text('${getAllPostResponse.title}'),
+                    ),
                   ),
                 );
               },
