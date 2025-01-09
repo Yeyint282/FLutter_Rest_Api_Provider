@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_lesson/data/model/get_all_post_response.dart';
-import 'package:flutter_provider_lesson/provider/get_all_post_state.dart';
-import 'package:flutter_provider_lesson/provider/get_all_provider.dart';
+import 'package:flutter_provider_lesson/provider/get_all_post/get_all_post_state.dart';
+import 'package:flutter_provider_lesson/provider/get_all_post/get_all_provider.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
