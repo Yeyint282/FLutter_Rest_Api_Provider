@@ -28,9 +28,12 @@ class BlogApiService {
   Future<BlogUploadResponse> uploadPost(
       {required String title,
       required String body,
-      required FormData data}) async {
-    final uploadResponse =
-        await dio.post('${baseUrl}post?title=$title&body=$body', data: data);
+      required FormData data,
+      required Function(int, int) onSendProgress}) async {
+    final uploadResponse = await dio.post(
+        '${baseUrl}post?title=$title&body=$body',
+        data: data,
+        onSendProgress: onSendProgress);
     return BlogUploadResponse.fromJson(uploadResponse.data);
   }
 }
